@@ -17,7 +17,7 @@ def get_armstrong_number():
 
 
 def get_not_armstrong_number():
-    n = random.randint(10, 2147483647)
+    n = random.randint(10, 2**31 - 1)
     if is_armstrong(n):
         return get_not_armstrong_number()
     return n
@@ -65,16 +65,26 @@ class TestArmstrong(Test):
         for args in list(permutations(['--version', '--verbose', str(num)], 3)):
             self.test(f"armstrong {' '.join(args)}", Armstrong(*args).stdout.grep('(?i)version'))
 
+        self.test("Présence d'email", Armstrong('--version').stdout.grep('<.*?@.*?>'))
+
     def test_verbose(self):
-        "Test de l'option --verbose"
+        "Test de l'option verbose"
 
         n = 564
-        self.test(f"Valeur {n} sur stdout",  len(
+        self.test(f"Valeur {n} sur stdout avec --verbose",  len(
             Armstrong('--verbose', n).stdout.grep(r'\b%d\b' % n)))
+
+        self.test(f"Valeur {n} sur stdout avec -v",  len(
+            Armstrong('-v', n).stdout.grep(r'\b%d\b' % n)))
 
         for args, exit_status in {33: True, 153: False, 154: True}.items():
             self.test(f"Valeur {args}", len(
                 Armstrong('--verbose', args).stdout.grep('\bpas\b|\bis\b')) == 0)
 
+    def test_stdin(self):
+        "Test avec stdin"
 
+        self.test("cat 153 | armstrong", Armstrong(stdin=b'153').exit_status == 0)
+        self.test("cat 154 | armstrong", Armstrong(stdin=b'153').exit_status == 1)
+        self.test("cat 153 | armstrong", Armstrong('--verbose', stdin=b'153').exit_status == 0)
 TestArmstrong()

@@ -6,14 +6,9 @@
 
 bool is_armstrong(int number) {
     int candidate = number;
-
-    if (number < 10) {
-        return 1;
-    }
-
     int digits = log10(number) + 1;
-    int sum = 0;
 
+    int sum = 0;
     while (number != 0) {
         sum += pow(number % 10, digits);
         number /= 10;
