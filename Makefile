@@ -24,7 +24,7 @@ format: $(CSRCS)
 
 test: $(EXEC)
 	@echo -e '\e[1;34mRun tests...\e[m'
-	EXEC=./$< ./test.sh
+	./test.py
 
 clean:
 	@echo -e '\e[1;34mCleaning...\e[m'

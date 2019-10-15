@@ -37,10 +37,7 @@ Ce travail pratique permet de se familiariser avec les notions suivantes:
 
 ## Algorihme
 
-Avant de commencer à coder, il vous est demandé d'inclure à votre référentiel un diagramme en flux représentant votre algorithme. Deux possibilités vous sont offertes:
-
-1. https://www.draw.io/
-2. Ascii
+Avant de commencer à coder, il vous est demandé d'inclure à votre référentiel un diagramme en flux représentant votre algorithme. Il vous est proposé d'utiliser https://draw.io et d'exporter votre diagramme en un fichier XML que vous pouvez inclure à votre Git.
 
 ## Version
 

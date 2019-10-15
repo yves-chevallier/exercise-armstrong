@@ -4,7 +4,7 @@ import random
 from pangolin import Executable, Test
 from itertools import permutations
 
-Armstrong = Executable('./a.out')
+Armstrong = Executable('./armstrong')
 
 
 def is_armstrong(n):
