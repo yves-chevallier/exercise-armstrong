@@ -30,10 +30,6 @@ void help(void) {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc <= 1) {
-        return 2;
-    }
-
     bool verbose = false;
     int candidate = 0;
     int options = 0;
@@ -58,7 +54,6 @@ int main(int argc, char *argv[]) {
             candidate = atoi(argv[i]);
         }
     }
-
     if (argc - options <= 1) {
         if (!scanf("%d", &candidate)) {
             return 3;

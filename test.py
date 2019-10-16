@@ -25,11 +25,6 @@ def get_not_armstrong_number():
 
 class TestArmstrong(Test):
 
-    def test_arguments(self):
-        "Test des codes d'erreurs"
-
-        self.test("Éxecution sans arguments", Armstrong().exit_status == 2)
-
     def test_basic(self):
         "Test des valeurs de base"
 
@@ -39,7 +34,7 @@ class TestArmstrong(Test):
                       f"Bad exit status '{out}' for input '{args}', expected '{exit_status}'")
 
         for i in range(10):
-            assert(Armstrong(i).exit_status == 0)
+            self.test(f"Valeur {i}", Armstrong(i).exit_status == 0)
 
     def test_random_not_armstrong(self):
         "Test aléatoire pour des nombres non narcissiques"
@@ -63,9 +58,11 @@ class TestArmstrong(Test):
         num = random.randint(10, 100000)
 
         for args in list(permutations(['--version', '--verbose', str(num)], 3)):
-            self.test(f"armstrong {' '.join(args)}", Armstrong(*args).stdout.grep('(?i)version'))
+            self.test(f"armstrong {' '.join(args)}", Armstrong(
+                *args).stdout.grep('(?i)version'))
 
-        self.test("Présence d'email", Armstrong('--version').stdout.grep('<.*?@.*?>'))
+        self.test("Présence d'email", Armstrong(
+            '--version').stdout.grep('<.*?@.*?>'))
 
     def test_verbose(self):
         "Test de l'option verbose"
@@ -85,6 +82,8 @@ class TestArmstrong(Test):
         "Test avec stdin"
 
         self.test("cat 153 | armstrong", Armstrong(stdin=b'153').exit_status == 0)
-        self.test("cat 154 | armstrong", Armstrong(stdin=b'153').exit_status == 1)
-        self.test("cat 153 | armstrong", Armstrong('--verbose', stdin=b'153').exit_status == 0)
+        self.test("cat 154 | armstrong", Armstrong(stdin=b'154').exit_status == 1)
+        self.test("cat 9 | armstrong", Armstrong('--verbose', stdin=b'9').exit_status == 0)
+
+
 TestArmstrong()
