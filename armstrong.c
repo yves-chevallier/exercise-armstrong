@@ -1,24 +1,6 @@
-#include <math.h>
-#include <string.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 bool is_armstrong(int number) {
-    int candidate = number;
-    int digits = log10(number) + 1;
 
-    int sum = 0;
-    while (number != 0) {
-        sum += pow(number % 10, digits);
-        number /= 10;
-    }
-
-    return sum == candidate;
-}
-
-void version(void) {
-    printf("Version 1.0.0 2019(c)\nYves Chevallier <yves.chevallier@heig-vd.ch>\n");
 }
 
 void help(void) {
@@ -54,19 +36,8 @@ int main(int argc, char *argv[]) {
             candidate = atoi(argv[i]);
         }
     }
-    if (argc - options <= 1) {
-        if (!scanf("%d", &candidate)) {
-            return 3;
-        }
-    }
 
     bool result = is_armstrong(candidate);
-
-    if (verbose) {
-        printf("Le nombre %d %s un nombre d'Armstrong\n",
-            candidate,
-            result ? "\033[1;92mest\033[0m" : "\033[1;31mn'est pas\033[0m");
-    }
 
     return !result;
 }
