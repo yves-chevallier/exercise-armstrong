@@ -3,8 +3,8 @@ import os
 import re
 import sys
 import subprocess
-from blessings import Terminal
 
+from blessings import Terminal
 from collections import namedtuple
 
 
@@ -53,12 +53,12 @@ class Test:
             print("")
 
         if self.errors == 0:
-            print(f"Éxecuté {self.tests} tests avec succes\n\nOK")
+            print(f"Éxecuté {self.tests} tests avec succès\n\nOK")
             sys.exit(0)
         else:
             s = "s" if self.errors > 1 else ""
             print(
-                f"Éxecuté {self.tests - self.errors} sur {self.tests} tests avec succes, {self.errors} erreur{s}\n\nFAIL")
+                f"Éxecuté {self.tests - self.errors} sur {self.tests} tests avec succès, {self.errors} erreur{s}\n\nFAIL")
             sys.exit(1)
 
     def collect(self):

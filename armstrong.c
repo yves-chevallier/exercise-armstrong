@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     int options = 0;
 
     for (size_t i = 1; i < argc; i++) {
-        if (argv[i][0] == '-') {
+        if (argv[i][0] == '-' && argv[i][1] < '0' && argv[i][1] > '9') {
             options++;
         }
 
@@ -50,22 +50,24 @@ int main(int argc, char *argv[]) {
             help();
             exit(EXIT_SUCCESS);
         }
-        else {
-            candidate = atoi(argv[i]);
+        else if (sscanf(argv[i], "%d", &candidate) == 0) {
+            help();
+            return 2;
         }
     }
     if (argc - options <= 1) {
         if (!scanf("%d", &candidate)) {
-            return 3;
+            help();
+            return 2;
         }
     }
 
     bool result = is_armstrong(candidate);
 
     if (verbose) {
-        printf("Le nombre %d %s un nombre d'Armstrong\n",
+        printf("Le nombre %d %s nombre d'Armstrong\n",
             candidate,
-            result ? "\033[1;92mest\033[0m" : "\033[1;31mn'est pas\033[0m");
+            result ? "\033[1;92mest un\033[0m" : "\033[1;31mn'est pas un\033[0m");
     }
 
     return !result;
