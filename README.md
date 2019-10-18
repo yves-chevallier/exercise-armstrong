@@ -1,7 +1,20 @@
 # Nombres narcissiques
 
-- **Durée**: 2 périodes + travail à la maison
-- **Date de rendu**: Lundi après les vacances, au soir avant minuit.
+<!-- TOC -->
+
+- [Nombres narcissiques](#nombres-narcissiques)
+    - [Objectifs pédagogiques](#objectifs-pédagogiques)
+    - [Algorihme](#algorihme)
+    - [Programme de test](#programme-de-test)
+    - [En-tête de programme](#en-tête-de-programme)
+    - [Affichage de la version](#affichage-de-la-version)
+    - [Mode verbeux](#mode-verbeux)
+    - [Entrée standard (*stdin*)](#entrée-standard-stdin)
+
+<!-- /TOC -->
+
+- **Durée**: 4 périodes + travail à la maison
+- **Date de rendu**: Lundi après les vacances, avant minuit.
 
 Un nombre Narcissique ou nombre d'Armstrong est un nombre qui est égal à la somme de ses chiffres chacun exprimé à la puissnce du nombre de chiffres que comporte ce nombre.
 
@@ -30,10 +43,11 @@ $ echo $?
 
 Ce travail pratique permet de se familiariser avec les notions suivantes:
 
-- Les structures de données (`while`)
-- La capture d'arguments (`argv`) et de l'entrée standard (`stdin`)
-- Les options d'appel
-- L'algorithmique
+- La structure de contrôle `while`
+- La capture d'arguments avec `argv`
+- La lecture de l'entrée standard `stdin`
+- Les options d'appel `--version`, `--verbose`
+- La conception d'algorithmes
 
 ## Algorihme
 
@@ -69,6 +83,8 @@ Pour tester votre programme:
 make test
 ```
 
+Ce programme de test est très complet et comporte plus de 60 tests. L'évaluation de votre travail portera en grande partie en la réussite des tests.
+
 ## En-tête de programme
 
 Il vous est demandé d'écrire un en-tête de programme expliquant ce que fait le programme. Inspirez-vous de ceci:
@@ -82,10 +98,16 @@ Il vous est demandé d'écrire un en-tête de programme expliquant ce que fait l
  * Example:
  *
  *     ./armstrong --verbose ...
- *
+ */
 ```
 
-## Version
+L'en-tête de programme doit être concis. Sa structure est la suivante:
+
+- Première ligne: résumé du programme en une ligne se terminant par un point.
+- Explication détaillée du programme.
+- Eventuellement un exemple d'utilisation du programme.
+
+## Affichage de la version
 
 Le programme doit afficher son nom et sa version si appelé avec l'option `--version`:
 
@@ -94,11 +116,13 @@ $./armstrong --version
 Version 1.0.0 (c)2019 Nom Prenom <firstname.lastname@heig-vd.ch>
 ```
 
+La plupart des programmes disposent de cette option. Essayez par exemple: `git --version` ou `gcc --version`. La convention **GNU** pour la [syntaxe des arguments](https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html) est qu'un argument de programme est considéré comme une option s'il commence par le caractère `-` ([U+002D](https://www.compart.com/en/unicode/U+002D)). Généralement il existe les options courtes (`-v`, `-h`) et les options longues (`--version`) qui commencent par deux tirets.
+
 Le programme de test vérifie la présence du mot `Version` suivi de 3 chiffres séparés par des points e.g `0.1.1`. Il vérifie la présence d'un e-mail exprimé entre `<>`.
 
-## Verbose
+## Mode verbeux
 
-Le programme peut être verbeux, c'est à dire afficher le résultat sous forme de texte en plus de retourner le résultat dans le status de sortie:
+Le programme peut être verbeux, c'est à dire afficher des informations sous forme de texte sur la sortie standard en plus de retourner le résultat dans le status de sortie:
 
 ```shell
 $./armstrong --verbose 153
@@ -107,7 +131,7 @@ Le nombre 153 est bien un nombre d'Armstrong
 
 Le programme de test vérifie cette fois-ci que le nombre d'entré est répété sur la sortie, ici `153` et que le texte de sortie comporte `est bien un` ou `is an` dans le car ou c'est un nombre narcissique et `n'est pas un` ou `is not` ou `isn't` dans le cas inverse.
 
-## Entrée standard
+## Entrée standard (*stdin*)
 
 Dans le cas ou le premier argument n'est pas un nombre, le programme obtient le nombre d'entrée via `stdin`:
 
@@ -117,7 +141,7 @@ $ echo $?
 0
 ```
 
-L'entrée standard peut être lue avec la fonction `scanf`. Essayez par exemple:
+L'entrée standard peut être lue avec la fonction `scanf`. Essayez par exemple d'exécuter ce programme:
 
 ```c
 int main(void) {
