@@ -15,6 +15,11 @@ else
 DIFF=colordiff
 endif
 
+lib: lib$(EXEC).so
+
+lib$(EXEC).so: $(CSRCS)
+	$(CC) -shared -o $@ $^ -fPIC
+
 format: $(CSRCS)
 	clang-format $< | $(DIFF) $< -
 
@@ -22,12 +27,12 @@ format: $(CSRCS)
 	@echo -e '\e[1;34mCompilation...\e[m'
 	$(CC) $(CFLAGS) $? -o $@ $(LDFLAGS)
 
-test: $(EXEC)
+test: lib $(EXEC)
 	@echo -e '\e[1;34mRun tests...\e[m'
 	./test.py
 
 clean:
 	@echo -e '\e[1;34mCleaning...\e[m'
-	$(RM) $(EXEC) *.o a.out
+	$(RM) $(EXEC) *.o a.out lib$(EXEC).so
 
-.PHONY: test all format build
+.PHONY: test all format build lib

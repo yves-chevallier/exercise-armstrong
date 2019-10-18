@@ -1,6 +1,11 @@
+#include <math.h>
+#include <string.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 bool is_armstrong(int number) {
-
+    return false;
 }
 
 void help(void) {
@@ -12,32 +17,8 @@ void help(void) {
 }
 
 int main(int argc, char *argv[]) {
-    bool verbose = false;
-    int candidate = 0;
-    int options = 0;
 
-    for (size_t i = 1; i < argc; i++) {
-        if (argv[i][0] == '-') {
-            options++;
-        }
-
-        if (!strcmp(argv[i], "--version")) {
-            version();
-            exit(EXIT_SUCCESS);
-        }
-        else if (!strcmp(argv[i], "--verbose") || !strcmp(argv[i], "-v")) {
-            verbose = true;
-        }
-        else if (!strcmp(argv[i], "--help")) {
-            help();
-            exit(EXIT_SUCCESS);
-        }
-        else {
-            candidate = atoi(argv[i]);
-        }
-    }
-
-    bool result = is_armstrong(candidate);
+    bool result = is_armstrong(153);
 
     return !result;
 }

@@ -9,7 +9,7 @@ details:
     description: Exécutable binaire
     all-tests-passed:
       description: Tous les tests fonctionnels ont passés avec succès.
-      points: 5
+      points: 20
   build:
     description: Compilation du code
     with-no-errors:
