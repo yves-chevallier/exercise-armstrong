@@ -1,11 +1,14 @@
+# Exercice : Armstrong
+
 <!-- TOC -->
 
-- [Les nombres d'Armstrong](#les-nombres-darmstrong)
-- [Algorihme](#algorihme)
-- [Programme de test](#programme-de-test)
-- [Affichage de la version](#affichage-de-la-version)
-- [Mode verbeux](#mode-verbeux)
-- [Entrée standard (*stdin*)](#entr%c3%a9e-standard-stdin)
+- [Exercice : Armstrong](#exercice--armstrong)
+  - [Les nombres d'Armstrong](#les-nombres-darmstrong)
+  - [Algorihme](#algorihme)
+  - [Programme de test](#programme-de-test)
+  - [Affichage de la version](#affichage-de-la-version)
+  - [Mode verbeux](#mode-verbeux)
+  - [Entrée standard (*stdin*)](#entr%c3%a9e-standard-stdin)
 
 <!-- /TOC -->
 
