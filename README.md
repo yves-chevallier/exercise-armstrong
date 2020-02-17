@@ -1,21 +1,13 @@
-# Nombres narcissiques
-
 <!-- TOC -->
 
-- [Nombres narcissiques](#nombres-narcissiques)
-    - [Les nombres d'Armstrong](#les-nombres-darmstrong)
-    - [Objectifs pédagogiques](#objectifs-pédagogiques)
-    - [Algorihme](#algorihme)
-    - [Programme de test](#programme-de-test)
-    - [En-tête de programme](#en-tête-de-programme)
-    - [Affichage de la version](#affichage-de-la-version)
-    - [Mode verbeux](#mode-verbeux)
-    - [Entrée standard (*stdin*)](#entrée-standard-stdin)
+- [Les nombres d'Armstrong](#les-nombres-darmstrong)
+- [Algorihme](#algorihme)
+- [Programme de test](#programme-de-test)
+- [Affichage de la version](#affichage-de-la-version)
+- [Mode verbeux](#mode-verbeux)
+- [Entrée standard (*stdin*)](#entr%c3%a9e-standard-stdin)
 
 <!-- /TOC -->
-
-- **Durée**: 4 périodes + travail à la maison
-- **Date de rendu**: Lundi après les vacances, avant minuit.
 
 ## Les nombres d'Armstrong
 
@@ -42,31 +34,21 @@ $ echo $?
 0
 ```
 
-## Objectifs pédagogiques
-
-Ce travail pratique permet de se familiariser avec les notions suivantes:
-
-- La structure de contrôle `while`
-- La capture d'arguments avec `argv`
-- La lecture de l'entrée standard `stdin`
-- Les options d'appel `--version`, `--verbose`
-- La conception d'algorithmes
-
 ## Algorihme
 
-Avant de commencer à coder, il vous est demandé d'inclure à votre référentiel un diagramme en flux représentant votre algorithme. Il vous est proposé d'utiliser https://draw.io et d'exporter votre diagramme en un fichier XML que vous appellerez `algorithm.xml` et que vous pouvez inclure à votre référentiel Git avec:
+Avant de commencer à coder, prenez une feuille de papier et dessinez le diagramme de flux de votre algorithme. Ce diagramme comportera :
+
+- des rectangles arrondis pour le début et la fin de l'algorithme;
+- des rectangles pour les actions;
+- des losanges pour les décisions.
+
+Vous pouvez aussi inclure à votre référentiel un diagramme en flux représentant votre algorithme. Il vous est proposé d'utiliser https://draw.io et d'exporter votre diagramme en un fichier XML que vous appellerez `algorithm.xml` et que vous pouvez inclure à votre référentiel Git avec:
 
 ```
 git add algorithm.xml
 ```
 
-Le diagramme en flux se composera:
-
-- De rectangles arrondis pour le début et la fin de l'algorithme;
-- De rectangles pour les actions;
-- De losanges pour les décisions.
-
-Une fois terminé vous devez implémenter cet algorithme sous forme d'une fonction dont le prototype est:
+Une fois terminé, implémentez cet algorithme sous forme d'une fonction dont le prototype est:
 
 ```c
 bool is_armstrong(int number);
@@ -87,28 +69,6 @@ make test
 ```
 
 Ce programme de test est très complet et comporte plus de 60 tests. L'évaluation de votre travail portera en grande partie en la réussite des tests.
-
-## En-tête de programme
-
-Il vous est demandé d'écrire un en-tête de programme expliquant ce que fait le programme. Inspirez-vous de ceci:
-
-```c
-/**
- * Check Armstrong number.
- *
- * This program ...
- *
- * Example:
- *
- *     ./armstrong --verbose ...
- */
-```
-
-L'en-tête de programme doit être concis. Sa structure est la suivante:
-
-- Première ligne: résumé du programme en une ligne se terminant par un point.
-- Explication détaillée du programme.
-- Eventuellement un exemple d'utilisation du programme.
 
 ## Affichage de la version
 
